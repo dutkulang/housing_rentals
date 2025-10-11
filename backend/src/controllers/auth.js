@@ -8,6 +8,9 @@ export async function login(request, response){
     if(!user){
         throw new Error("User does not exist")
     }
+    if(! await compareHash(password, user.password)){
+        throw new Error("Invalid credentials")
+    }
     response.json({
         message: "login success"
     })
@@ -21,9 +24,12 @@ export async function login(request, response){
 export async function signup(request, response){
     try {
         let {fullName, email, password} = request.body
+        
+        if(await User.findOne({email: email})){            
+            throw new Error("Email has already been used")
+        }
         const hash = await hashPassword(password)
         const user  = await User({fullName, email, password:hash}).save()
-        console.log(user)
         response.json({
             message: "signup success***",
             user
