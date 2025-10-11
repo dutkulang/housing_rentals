@@ -3,6 +3,7 @@ import dotenv from "dotenv";
 import connectDB from "./config/db.js";
 import propertyRouter from "./routers/propertyRouter.js";
 import authRouter from "./routers/authRouter.js";
+import userRouter from "./routers/userRouter.js";
 dotenv.config()
 
 const app = express()
@@ -11,6 +12,7 @@ app.use(express.json())
 
 app.use("/properties", propertyRouter);
 app.use("", authRouter)
+app.use("/users", userRouter)
 
 connectDB().then(
     ()=>{
