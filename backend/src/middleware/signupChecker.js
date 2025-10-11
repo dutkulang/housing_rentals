@@ -1,6 +1,7 @@
 import validator from "validator"
+import User from "../models/user.js"
 
-function signupChecker(request, response, next){
+async function signupChecker(request, response, next){
     const requiredFields = ["fullName", "email", "password"]
     try {
         if(!request.body){
@@ -10,8 +11,9 @@ function signupChecker(request, response, next){
         if(!validator.isEmail(email)){
             throw new Error("Invalid credentials")
         }
+        
         const requestKeys = Object.keys(request.body)
-        if(!requestKeys.every(key=> requiredFields.includes(key))){
+        if(!requiredFields.every(key=> requestKeys.includes(key))){
             throw new Error("Invalid credentials")
         }
         next()
