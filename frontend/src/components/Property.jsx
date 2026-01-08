@@ -1,7 +1,7 @@
 function Property(){
     return(
         <div>
-            <h1>Proprty infor</h1>
+            <h1>Property infor</h1>
         </div>
     )
 }
