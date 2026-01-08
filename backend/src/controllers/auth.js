@@ -3,7 +3,7 @@ import User from "../models/user.js"
 
 export async function login(request, response){
     try {
-        const {email, password} = request.body
+        const {email, password} = request?.body
     const user = await User.findOne({email: email})
     if(!user){
         throw new Error("User does not exist")
@@ -23,7 +23,7 @@ export async function login(request, response){
 }
 export async function signup(request, response){
     try {
-        let {fullName, email, password} = request.body
+        let {fullName, email, password} = request?.body
         
         if(await User.findOne({email: email})){            
             throw new Error("Email has already been used")
