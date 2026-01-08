@@ -5,7 +5,7 @@ import Homepage from './components/Homepage';
 import Property from './components/property.jsx';
 import PropertyList from './components/PropertyList.jsx';
 import Login from "./components/Login.jsx";
-import Signup from './components/Signup.jsx';
+import Signup from './components/signup.jsx';
 import './index.css'
 import App from './App.jsx'
 import Contact from './components/Contact.jsx';
