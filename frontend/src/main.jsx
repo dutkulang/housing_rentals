@@ -1,12 +1,14 @@
-import { StrictMode } from 'react'
 import { createRoot } from 'react-dom/client'
 import {createBrowserRouter, RouterProvider } from "react-router";
 import Error from './components/Error.jsx';
 import Homepage from './components/Homepage';
 import Property from './components/property.jsx';
 import PropertyList from './components/PropertyList.jsx';
+import Login from "./components/Login.jsx";
+import Signup from './components/Signup.jsx';
 import './index.css'
 import App from './App.jsx'
+import Contact from './components/Contact.jsx';
 
 
 const appRouter = createBrowserRouter([
@@ -22,6 +24,18 @@ const appRouter = createBrowserRouter([
       {
         path:"/property/123",
         element: <Property/>
+      },
+      {
+        path:"/login",
+        element: <Login/>
+      },
+      {
+        path:"/signup",
+        element:<Signup/>
+      },
+      {
+        path:"/contact",
+        element: <Contact/>
       }
     ]
   }
