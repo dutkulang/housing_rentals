@@ -1,11 +1,13 @@
+import { Link } from "react-router";
+
 function Header(){
     return (
         <header>
-            <p>Housing & Rentals</p>
+            <Link to={"/"}>Housing & Rentals</Link>
             <nav>
-                <button>About</button>
-                <button>Sign</button>
-                <button>Login</button>
+                <button><Link to={"/contact"}>Contact</Link></button>
+                <button><Link to={"/signup"}>Sign</Link></button>
+                <button><Link to={"/login"}>Login</Link></button>
             </nav>
         </header>
     )
